@@ -26,7 +26,7 @@ export default function Footer() {
                       <li><a href="department-details.html">Administration</a></li>
                       <li><a href="service-details.html">Fire Services</a></li>
                       <li><a href="event-details.html">Business & Taxation</a></li>
-                      <li><a href="team-details.html">Circular’s And Go’s</a></li>
+                      <li><a href="team-details.html">Circular's And Go's</a></li>
                       <li><a href="contact.html">Contact Us</a></li>
                     </ul>
                   </div>

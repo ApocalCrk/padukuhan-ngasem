@@ -448,7 +448,7 @@ export default function Home() {
                       </div>
                       <div className="testimonial-text">
                         This is due to their excellent service, competitive pricing and customer
-                        support. It’s throughly refresing to get such a personal touch. Duis aute lorem
+                        support. It's throughly refresing to get such a personal touch. Duis aute lorem
                         ipsum is simply free text irure dolor in reprehenderit in esse nulla pariatur.
                       </div>
                       <div className="testimonial-thumb-card">
@@ -468,7 +468,7 @@ export default function Home() {
                       </div>
                       <div className="testimonial-text">
                         This is due to their excellent service, competitive pricing and customer
-                        support. It’s throughly refresing to get such a personal touch. Duis aute lorem
+                        support. It's throughly refresing to get such a personal touch. Duis aute lorem
                         ipsum is simply free text irure dolor in reprehenderit in esse nulla pariatur.
                       </div>
                       <div className="testimonial-thumb-card">
@@ -488,7 +488,7 @@ export default function Home() {
                       </div>
                       <div className="testimonial-text">
                         This is due to their excellent service, competitive pricing and customer
-                        support. It’s throughly refresing to get such a personal touch. Duis aute lorem
+                        support. It's throughly refresing to get such a personal touch. Duis aute lorem
                         ipsum is simply free text irure dolor in reprehenderit in esse nulla pariatur.
                       </div>
                       <div className="testimonial-thumb-card">
