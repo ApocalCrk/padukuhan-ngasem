@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer() {
     return <section className="footer">
         <div className="footer-inner">
@@ -5,8 +7,8 @@ export default function Footer() {
             <div className="row">
               <div className="col-lg-4">
                 <div className="footer-widget-logo">
-                  <a href="index-2.html"><img src="/image/logo-ngasem.png" className="img-fluid"
-                      alt="img-25"/></a>
+                  <a href="index-2.html"><Image src="/image/logo-light.png" className="img-fluid"
+                      alt="img-25" width="200" height="50" /></a>
                 </div>
                 <div className="footer-widget-text">
                   <p>Padukuhan Ngasem adalah sebuah padukuhan yang terletak di Desa Tileng, Kecamatan Girisubo, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta</p>

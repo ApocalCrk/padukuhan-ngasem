@@ -9,7 +9,7 @@ export default function Sidebar({ isExpanded, handleToggle } : { isExpanded: boo
         <span></span>
       </a>
       <div className="logo-box">
-        <a href="/"><Image src="/image/logo-ngasem.png" alt="img-145" width="200" height={50} /></a>
+        <a href="/"><Image src="/image/logo-light.png" alt="img-145" width="200" height={50} /></a>
       </div>
       <div className="mobile-nav-container"></div>
       <ul className="mobile-nav-contact list-unstyled position-absolute bottom-0">

@@ -86,8 +86,8 @@ export default function Header({ handleToggle } : { handleToggle: () => void }) 
               <li>
                 <a href="#">Berita & Artikel</a>
               </li>
-              <li>
-                <a href="contact.html">Kontak</a>
+              <li className={active === '/kontak' ? 'active' : ''}>
+                <Link href="/kontak" onClick={() => onChangePage('/kontak')}>Kontak</Link>
               </li>
             </ul>
           </div>

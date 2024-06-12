@@ -10,7 +10,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Sidebar from "@/components/sidebar";
 import SearchBar from "@/components/search-bar";
-import BackToTop from "@/components/external/backtotop";
+import BackToTop from "@/components/external/back-to-top";
 
 const manrope = Manrope({
   subsets: ["latin"],
