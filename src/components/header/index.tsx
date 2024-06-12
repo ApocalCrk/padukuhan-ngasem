@@ -1,5 +1,23 @@
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
 export default function Header() {
-    return <header className="header">
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  return <header className="header">
     <div className="topbar">
       <div className="topbar-inner">
         <div className="topbar-left">
@@ -16,7 +34,7 @@ export default function Header() {
                   <i className="fa-solid fa-envelope"></i>
                 </div>
                 <div className="topbar-text">
-                  <a href="mailto:ngasem@gmail.com">ngasem@gmail.com</a>
+                  <a href="mailto:padukuhan.ngasem1@gmail.com">padukuhan.ngasem1@gmail.com</a>
                 </div>
               </li>
               <li>
@@ -39,11 +57,11 @@ export default function Header() {
         </div>
       </div>
     </div>
-    <div className="main-menu sticky-header">
+    <div className={`main-menu sticky-header ${scrolled ? 'sticky-fixed sticky-header--cloned' : ''}`}>
       <div className="main-menu-inner">
         <div className="main-menu-left">
           <div className="main-menu-logo">
-            <a href="/"><img src="/image/logo-ngasem.png" alt="img-145" width="200"/></a>
+            <a href="/"><Image src="/image/logo-ngasem.png" alt="img-145" width="200" height={50} /></a>
           </div>
           <div className="navigation">
             <ul className="main-menu-list list-unstyled">

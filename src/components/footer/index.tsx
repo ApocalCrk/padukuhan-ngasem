@@ -5,11 +5,11 @@ export default function Footer() {
             <div className="row">
               <div className="col-lg-4">
                 <div className="footer-widget-logo">
-                  <a href="index-2.html"><img src="/image/logo-light.png" className="img-fluid"
+                  <a href="index-2.html"><img src="/image/logo-ngasem.png" className="img-fluid"
                       alt="img-25"/></a>
                 </div>
                 <div className="footer-widget-text">
-                  <p>The gowrnx official guide to living, working, visiting and investing in the Texas</p>
+                  <p>Padukuhan Ngasem adalah sebuah padukuhan yang terletak di Desa Tileng, Kecamatan Girisubo, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta</p>
                 </div>
                 <div className="footer-widget-socials">
                   <a href="#"><i className="fa-brands fa-twitter"></i></a>
@@ -50,18 +50,18 @@ export default function Footer() {
                 <div className="footer-widget">
                   <div className="footer-widget-contact">
                     <h4 className="footer-widget-title">Contact</h4>
-                    <p>88 Broklyn Golden Road Street,<br/>New York. USA</p>
+                    <p>Padukuhan Ngasem, Desa Tileng, Kecamatan Girisubo, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta</p>
                   </div>
                   <div className="footer-widget-contact-list">
                     <i className="fa-solid fa-envelope"></i>
                     <div className="footer-widget-contact-item">
-                      <a href="mailto:needhelp@company.com">needhelp@company.com</a>
+                      <a href="mailto:padukuhan.ngasem1@gmail.com">padukuhan.ngasem1@gmail.com</a>
                     </div>
                   </div>
                   <div className="footer-widget-contact-list">
                     <i className="fa-solid fa-phone"></i>
                     <div className="footer-widget-contact-item">
-                      <a href="tel:+92-003-68-090">+92 (003) 68-090</a>
+                      <a href="tel:+62 812-3456-7890">+62 812-3456-7890</a>
                     </div>
                   </div>
                 </div>
@@ -71,7 +71,7 @@ export default function Footer() {
         </div>
         <div className="bottom-footer">
           <div className="conatiner">
-            <p>© Copyright 2023 by Company.com</p>
+            <p>© Copyright {new Date().getFullYear()} by <a href="#">Padukuhan Ngasem</a></p>
           </div>
         </div>
       </section>

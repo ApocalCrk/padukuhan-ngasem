@@ -15,15 +15,13 @@
 	--thm-dark-black-rgb: 1, 49, 60;
 	--thm-light-bg: #f3f6f7;
 	--thm-light-bg-rgb: 243, 246, 247;
-	--thm-font: "Manrope",sans-serif;
 	--thm-special-font: "reeyregular", sans-serif;
-	scroll-behavior: auto;
+	scroll-behavior: smooth;
 }
 /***********************
 * Common
 ***********************/
 body{
-	font-family: var(--thm-font);
 	font-size: 16px;
 	line-height: 1.5em;
 	font-weight: 500;
@@ -43,7 +41,6 @@ h1,h2,h3,h4,h5,h6 {
 	margin-bottom: 15px;
 }
 p{
-	font-family: var(--thm-font);
 	color: var(--thm-gray);
 	line-height: 1.875;
 	font-weight: 500;
@@ -111,7 +108,6 @@ a{
 	border: none;
 	padding: 20px 20px;
 	font-size: 14px;
-	font-family: var(--thm-font);
 }
 .page-wrapper {
 	position: relative;
@@ -127,7 +123,6 @@ a{
 	position: relative;
 	font-size: 14px;
 	color: var(--thm-primary);
-	font-family: var(--thm-font);
 	text-transform: uppercase;
 	font-weight: 700;
 	letter-spacing: 1px;
@@ -480,7 +475,6 @@ a{
 }
 .topbar-text{
 	margin-left: 5px;
-	font-family: var(--thm-font);
 	font-size: 13px;
 }
 .topbar-text span{
@@ -586,11 +580,17 @@ a{
     margin-bottom: -40px;
 }
 @media(max-width: 1199px){
+	.main-menu {
+		background-color: var(--thm-light);
+	}
 	.main-menu.menu-two{
 		margin-top: 10px
 	}
 }
 @media(max-width: 575px){
+	.search-box{
+		margin-right: 0px !important;	
+	}
 	.main-menu.menu-two{
 		margin-top: -17px
 	}
@@ -976,7 +976,6 @@ a.search-toggler{
 	font-size: 90px;
 	font-weight: 800;
 	color: var(--thm-white);
-	font-family: var(--thm-font);
 	margin-bottom: 30px;
 	transform: translateY(50px);
 	opacity: 0;
@@ -1119,7 +1118,6 @@ a.search-toggler{
 .slider-content-two .section-title{
 	font-size: 80px;
 	color: var(--thm-white);
-	font-family: var(--thm-font);
 	font-weight: 800;
 	margin-bottom: 30px;
 	transform: translateY(50px);
@@ -1796,13 +1794,11 @@ a.search-toggler{
 .about-author-box-meta h5{
 	margin: 0;
 	font-size: 16px;
-	font-family: var(--thm-font);
 	color: var(--thm-black);
 }
 .about-author-box-meta span{
 	font-size: 16px;
 	color: var(--thm-gray);
-	font-family: var(--thm-font);
 }
 .about-one-section{
 	padding-top: 120px;
@@ -2201,7 +2197,6 @@ a.search-toggler{
 }
 .service-card li{
 	font-size: 18px;
-	font-family: var(--thm-font);
 	position: relative;
 	transition: all 500ms ease;
 }
@@ -2441,7 +2436,6 @@ a.search-toggler{
 }
 .service-link-box li{
 	font-size: 18px;
-	font-family: var(--thm-font);
 }
 .service-link-box li + li {
 	margin-top: 20px;
@@ -3700,9 +3694,8 @@ a.search-toggler{
 	max-width: 370px;
 }
 .footer-widget-text p{
-	font-size: 20px;
+	font-size: 14px;
 	line-height: 32px;
-	font-weight: 600;
 	color: var(--thm-white);
 }
 .footer-widget-socials {
@@ -3773,7 +3766,6 @@ a.search-toggler{
 	margin-bottom: 10px;
 	font-size: 15px;
 	color: var(--thm-secondary);
-	font-family: var(--thm-font);
 }
 .footer-widget-explore li a{
 	color: var(--thm-secondary);
@@ -3788,7 +3780,6 @@ a.search-toggler{
 	margin-bottom: 10px;
 	font-size: 15px;
 	color: var(--thm-secondary);
-	font-family: var(--thm-font);
 	font-weight: 500;
 }
 .footer-widget-department li a{
@@ -3804,7 +3795,6 @@ a.search-toggler{
 	font-size: 15px;
 	margin-bottom: -8px;
 	color: var(--thm-secondary);
-	font-family: var(--thm-font);
 	font-weight: 500;
 }
 .footer-widget-contact-list{
@@ -3822,7 +3812,6 @@ a.search-toggler{
 	margin-left: 10px;
 	font-size: 15px;
 	color: var(--thm-white);
-	font-family: var(--thm-font);
 	font-weight: 700;
 }
 .footer-widget-contact-item a:hover{
@@ -3845,7 +3834,6 @@ a.search-toggler{
 ***********************/
 .event-section {
 	position: relative;
-	margin-top: -220px;
 	z-index: 1;
 }
 @media (min-width: 1200px) {
