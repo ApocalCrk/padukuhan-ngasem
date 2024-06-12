@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 
-export default function Header() {
+export default function Header({ handleToggle } : { handleToggle: () => void }) {
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState('/');
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -16,6 +18,10 @@ export default function Header() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const onChangePage = (page: string) => {
+    setActive(page);
+  }
 
   return <header className="header">
     <div className="topbar">
@@ -65,11 +71,11 @@ export default function Header() {
           </div>
           <div className="navigation">
             <ul className="main-menu-list list-unstyled">
-              <li className="active">
-                <a href="/">Beranda</a>
+              <li className={active === '/' ? 'active' : ''}>
+                <Link href="/" onClick={() => onChangePage('/')}>Beranda</Link>
               </li>
-              <li>
-                <a href="#">Profil Padukuhan</a>
+              <li className={active === '/profil' ? 'active' : ''}>
+                <Link href="/profil" onClick={() => onChangePage('/profil')}>Profil Padukuhan</Link>
               </li>
               <li>
                 <a href="#">Pelayanan Online</a>
@@ -87,7 +93,7 @@ export default function Header() {
           </div>
         </div>
         <div className="main-menu-right">
-          <div className="mobile-menu-button mobile-nav-toggler">
+          <div className="mobile-menu-button mobile-nav-toggler" onClick={handleToggle}>
             <span></span>
             <span></span>
             <span></span>
