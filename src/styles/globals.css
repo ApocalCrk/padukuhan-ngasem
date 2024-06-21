@@ -1,5 +1,5 @@
 :root{
-	--thm-primary: #2dcd7c;
+	--thm-primary: #2d8dcd;
 	--thm-primary-rgb: 45, 205, 124;
 	--thm-secondary: #9cb7bd;
 	--thm-secondary-rgb: 156, 183, 189;
@@ -1606,14 +1606,6 @@ a.search-toggler{
 	.about-image .img-one{
 		top: 0px;
 	}
-}
-.about-image .img-one:before{
-	content: '';
-	position: absolute;
-	border-bottom: 10px solid var(--thm-primary);
-	width: 100%;
-	height: 10px;
-	top: calc(100% + 10px);
 }
 @media(max-width:575px){
 	.about-image .img-one:before{
@@ -4251,9 +4243,9 @@ a.search-toggler{
 	margin-bottom: 30px;
 }
 .event-details-speaker-box{
-	padding: 43px 45px;
+	padding: 0px 45px;
 	background-color: var(--thm-light-bg);
-	margin-bottom: 55px;
+	margin-top: 55px;
 }
 .event-speaker-list-img {
 	padding-bottom: 15px;
@@ -6556,7 +6548,6 @@ label {
  }
 .sidebar-recent-post{
 	display: flex;
-	margin-bottom: 30px;
 }
 .sidebar-recent-post-img{
 	display: inline-block;
