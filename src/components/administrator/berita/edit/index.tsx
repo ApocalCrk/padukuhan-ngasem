@@ -82,25 +82,12 @@ const EditForm = ({ id }: { id: string }) => {
     <>
       <h1 className="text-2xl font-semibold text-gray-900 mb-2">Edit Berita</h1>
       <Formik
+        enableReinitialize
         initialValues={formikValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ setFieldValue, values, setValues }) => {
-          useEffect(() => {
-            const fetchBerita = async () => {
-              const berita = await getBerita(id);
-              setValues({
-                id: berita.id,
-                title: berita.judul,
-                content: berita.konten,
-                existingImageUrl: berita.gambar,
-                postDate: new Date().toISOString(),
-              });
-            };
-            fetchBerita();
-          }, [id, setValues]);
-
+        {({ setFieldValue, values }) => {
           return (
             <FormikForm className="space-y-6 p-6 bg-white rounded shadow-md">
               <div>

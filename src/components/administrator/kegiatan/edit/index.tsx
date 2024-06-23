@@ -111,31 +111,12 @@ const EditForm = ({ id }: { id: string }) => {
         Edit Kegiatan
       </h1>
       <Formik
+        enableReinitialize
         initialValues={formikValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ setFieldValue, values, setValues }) => {
-          useEffect(() => {
-            const fetchKegiatan = async () => {
-              const kegiatan = await getKegiatan(id);
-              setValues({
-                id: kegiatan.id,
-                title: kegiatan.judul,
-                content:
-                  kegiatan.konten == "<p><br></p>" ? "" : kegiatan.konten,
-                existingImageUrl: kegiatan.gambar,
-                has_tamu: kegiatan.has_tamu,
-                lokasi: kegiatan.lokasi,
-                tanggal: kegiatan.tanggal,
-                waktu_mulai: kegiatan.waktu_mulai.split(" sampai ")[0],
-                waktu_selesai: kegiatan.waktu_mulai.split(" sampai ")[1],
-                tamu: kegiatan.tamu,
-              });
-            };
-            fetchKegiatan();
-          }, [id, setValues]);
-
+        {({ setFieldValue, values }) => {
           return (
             <FormikForm className="space-y-6 p-6 bg-white rounded shadow-md">
               <div>
