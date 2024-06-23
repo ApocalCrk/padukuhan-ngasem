@@ -1,10 +1,21 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { getKegiatan } from '@/hooks/pages/fetch-kegiatan';
+import useKegiatan from '@/hooks/pages/useKegiatan';
 import { Kegiatan } from '@/types/kegiatan';
 
 export default function DetailKegiatan({id} : {id: string}) {
-    const kegiatan: Kegiatan | null = getKegiatan(id);
+    const { getKegiatan } = useKegiatan();
+    const [kegiatan, setKegiatan] = useState<Kegiatan | null>(null);
+
+    useEffect(() => {
+        const fetchKegiatan = async () => {
+            const kegiatanData = await getKegiatan(id);
+            setKegiatan(kegiatanData);
+        }
+
+        fetchKegiatan();
+    }, [id]);
+    
     return (
         <section className="event-details-section">
             <div className="container">
@@ -25,9 +36,7 @@ export default function DetailKegiatan({id} : {id: string}) {
                     <div className="col-lg-8">
                         <div className="event-details-content-box">
                             <h4>{kegiatan?.judul}</h4>
-                            <p>
-                                {kegiatan?.konten}
-                            </p>
+                            <p dangerouslySetInnerHTML={{__html: kegiatan?.konten || ''}} className='event-details-content'></p>
                             { kegiatan?.has_tamu ? (
                                 <>
                                     <h3 className="event-details-title">Tamu Yang Diundang</h3>

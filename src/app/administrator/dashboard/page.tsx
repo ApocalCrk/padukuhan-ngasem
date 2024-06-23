@@ -1,10 +1,9 @@
 'use client';
 import DefaultLayout from '@/components/administrator/Layouts/DefaultLayout';
-import withAdminAuth from '@/components/administrator/adminAuth/check';
 import DashboardPage from '@/components/administrator/dashboard';
 import React from 'react';
 
-function Page() {
+export default function Page() {
     return (
         <>
             <DefaultLayout>
@@ -13,5 +12,3 @@ function Page() {
         </>
     );
 }
-
-export default withAdminAuth(Page);

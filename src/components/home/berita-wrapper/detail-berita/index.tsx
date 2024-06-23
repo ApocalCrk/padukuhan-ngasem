@@ -1,11 +1,26 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { getBerita } from '@/hooks/pages/fetch-berita';
+import useBerita from '@/hooks/pages/useBerita';
 import { Berita } from '@/types/berita';
 import Sidebar from './sidebar';
 
 export default function DetailBerita({id} : {id: string}) {
-    const berita : Berita | null = getBerita(id);
+    const { getBerita } = useBerita();
+    const [berita, setBerita] = useState<Berita | null>(null);
+    
+    useEffect(() => {
+        const fetchBerita = async () => {
+            try {
+                const beritaData = await getBerita(id);
+                setBerita(beritaData);
+            } catch (error) {
+                console.error('Error fetching berita:', error);
+            }
+        };
+    
+        fetchBerita();
+    }, [id]);
+
     return (
         <section className="news-details-section">
             <div className="container">
@@ -33,7 +48,7 @@ export default function DetailBerita({id} : {id: string}) {
                         </div>
                         <div className="news-details-content-box">
                             <h4>{berita?.judul}</h4>
-                            <p dangerouslySetInnerHTML={{__html: berita?.konten || ''}}></p>
+                            <p dangerouslySetInnerHTML={{__html: berita?.konten || ''}} className='news-details-content'></p>
                         </div>
                         <div className="news-details-share-box">
                             <div className="news-details-inner">

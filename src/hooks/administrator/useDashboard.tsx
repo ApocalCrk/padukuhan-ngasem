@@ -25,7 +25,7 @@ function count_total_kegiatan() {
 
 function count_total_admin() {
     return new Promise<number>((resolve, reject) => {
-        getDocs(collection(db, 'users')).then((snapshot) => {
+        getDocs(collection(db, 'admins')).then((snapshot) => {
             resolve(snapshot.size);
         }).catch((error) => {
             reject(error);

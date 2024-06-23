@@ -1,14 +1,12 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { getAdminByUsername, validatePassword } from '@/utils/auth';
-import bcrypt from 'bcryptjs';
+import Cookies from 'js-cookie';
 
 export default function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const router = useRouter();
 
     useEffect(() => {
         const isLoggedIn = () => {
@@ -16,7 +14,10 @@ export default function Login() {
         };
 
         if (isLoggedIn()) {
-            router.push('/administrator/dashboard');
+            const data = localStorage.getItem('admin');
+            const parsedData = JSON.parse(data as string);
+            Cookies.set('token', parsedData?.uid);
+            window.location.href = '/administrator/dashboard';
         }
     }, []);
 
@@ -37,10 +38,14 @@ export default function Login() {
             if (admin && 'password' in admin) {
                 delete (admin as { password?: string }).password;
             }
+            
+            const data = JSON.stringify(admin);
+            localStorage.setItem('admin', data);
+            
+            const parsedData = JSON.parse(data);
+            Cookies.set('token', parsedData?.uid);
 
-            localStorage.setItem('admin', JSON.stringify(admin));
-
-            router.push('/administrator/dashboard');
+            window.location.href = '/administrator/dashboard';
         } catch (error) {
             setError('An error occurred');
             console.error('Error logging in', error);
@@ -48,29 +53,30 @@ export default function Login() {
     };
 
     return (
-        <div className="page-wrapper">
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-lg-6">
-                        <div className="login-box">
-                            <h2 className="text-center">Login</h2>
-                            {error && <div className="alert alert-danger">{error}</div>}
-                            <form>
-                                <div className="form-group">
-                                    <label>Username</label>
-                                    <input type="text" className="form-control" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
-                                </div>
-                                <div className="form-group">
-                                    <label>Password</label>
-                                    <input type="password" className="form-control" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-                                </div>
-                                <div className="form-group">
-                                    <button type="button" className="btn btn-primary btn-block" onClick={handleLogin}>Login</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+        <div className="flex items-center justify-center h-screen">
+            <div className="w-96">
+                <h1 className="text-3xl font-bold mb-4 text-center">Login</h1>
+                <input
+                    type="text"
+                    className="w-full border border-gray-300 rounded p-2 mb-2"
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+                <input
+                    type="password"
+                    className="w-full border border-gray-300 rounded p-2 mb-2"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <button
+                    className="w-full bg-blue-500 text-white rounded p-2"
+                    onClick={handleLogin}
+                >
+                    Login
+                </button>
+                {error && <p className="text-red-500 mt-2">{error}</p>}
             </div>
         </div>
     )

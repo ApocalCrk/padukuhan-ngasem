@@ -4233,6 +4233,11 @@ a.search-toggler{
 	font-size:30px;
 	margin-bottom: 15px;
 }
+
+.event-details-content img {
+	width: 100%;
+}
+
 .event-details-content-box p + p{
 	margin-bottom: 40px;
 }
@@ -4247,6 +4252,7 @@ a.search-toggler{
 	background-color: var(--thm-light-bg);
 	margin-top: 55px;
 }
+
 .event-speaker-list-img {
 	padding-bottom: 15px;
 }
@@ -4274,7 +4280,6 @@ a.search-toggler{
 }
 .event-speaker-list p{
 	color: var(--thm-gray);
-	padding: 0px 20px;
 }
 .event-details-gallery-box{
 	margin-bottom: 60px;
@@ -5524,6 +5529,11 @@ border-radius: 100px;
 .news-details-content-box{
 	border-bottom: 1px solid var(--thm-border);
 }
+
+.news-details-content img {
+	width: 100%;
+}
+
 .news-details-content-box h4{
 	font-size: 34px;
 	margin-bottom: 22px;

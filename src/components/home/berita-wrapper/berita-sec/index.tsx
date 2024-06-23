@@ -1,12 +1,30 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Berita } from '@/types/berita';
-import { getAllBerita } from '@/hooks/pages/fetch-berita';
+import useBerita from '@/hooks/pages/useBerita';
 import Link from 'next/link';
 import { formatContentWithBreaks } from '../../../../utils/sentencePeriod';
 
 export default function BeritaSec() {
-    const berita: Array<Berita> | null = getAllBerita();
+    const { getAllBerita } = useBerita();
+    const [berita, setBerita] = useState<Array<Berita> | null>(null);
+    
+    useEffect(() => {
+        const fetchBerita = async () => {
+            try {
+                const beritaData = await getAllBerita();
+                setBerita(beritaData);
+            } catch (error) {
+                console.error('Error fetching berita:', error);
+            }
+        };
+    
+        fetchBerita();
+    }, []);
+    
+    if (!berita) {
+        return <section className="blog-section blog-section-two"></section>;
+    }
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 6;
 

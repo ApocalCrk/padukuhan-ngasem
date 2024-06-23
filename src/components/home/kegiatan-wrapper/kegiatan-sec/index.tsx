@@ -1,11 +1,23 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { getAllKegiatan } from '@/hooks/pages/fetch-kegiatan';
+import useKegiatan from '@/hooks/pages/useKegiatan';
 import Link from 'next/link';
 import { Kegiatan } from '@/types/kegiatan';
 
 export default function KegiatanSec() {
-    const kegiatan: Array<Kegiatan> | null = getAllKegiatan();
+    const { getAllKegiatan } = useKegiatan();
+    const [kegiatan, setKegiatan] = useState<Array<Kegiatan> | null>(null);
+
+    useEffect(() => {
+        const fetchKegiatan = async () => {
+            const data = await getAllKegiatan();
+            setKegiatan(data);
+        }
+
+        fetchKegiatan();
+    }, []);
+
+    
     return (
         <section className="event-three-section">
             <div className="event-section-outer">

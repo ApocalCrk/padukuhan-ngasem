@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -14,6 +15,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 let analytics;
 isSupported().then((supported) => {
@@ -22,7 +24,7 @@ isSupported().then((supported) => {
   }
 });
 
-export { db, app };
+export { db, app, storage };
 export const getAnalyticsInstance = async () => {
   if (await isSupported()) {
     return getAnalytics(app);

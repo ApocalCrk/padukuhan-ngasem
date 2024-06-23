@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Berita } from '@/types/berita';
-import { getRecentBerita } from '@/hooks/pages/fetch-berita';
+import useBerita from '@/hooks/pages/useBerita';
 import Link from 'next/link';
 
 export default function Sidebar() {
-    const berita : Array<Berita> | null = getRecentBerita();
+    const { getRecentBerita } = useBerita();
+    const [berita, setBerita] = useState<Array<Berita> | null>(null);
+    
+    useEffect(() => {
+        const fetchBerita = async () => {
+            try {
+                const beritaData = await getRecentBerita();
+                setBerita(beritaData);
+            } catch (error) {
+                console.error('Error fetching berita:', error);
+            }
+        };
+    
+        fetchBerita();
+    }, []);
+
     return (
         <div className="sidebar">
             <div className="sidebar-widget sidebar-widget-recent-post">
