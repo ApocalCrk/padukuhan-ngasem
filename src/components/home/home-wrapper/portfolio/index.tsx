@@ -69,10 +69,10 @@ export default function Portfolio() {
                   />
                   <div className="portfolio-card-meta">
                     <div className="portfolio-card-text">
-                      <a href="portfolio-details.html">{item.tempat}</a>
+                      <span>{item.tempat}</span>
                     </div>
                     <div className="portfolio-card-title">
-                      <a href="portfolio-details.html">{item.nama_tempat}</a>
+                      <span>{item.nama_tempat}</span>
                     </div>
                   </div>
                 </div>

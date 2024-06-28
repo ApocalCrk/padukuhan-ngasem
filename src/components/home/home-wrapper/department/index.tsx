@@ -42,60 +42,60 @@ export default function Department() {
             <div className="col-xl-2 col-lg-4 col-md-6">
               <div className="department-card">
                 <div className="department-card-icon">
-                  <a href="departments.html"><i className="flaticon-farmer"></i></a>
+                  <a href="#"><i className="flaticon-farmer"></i></a>
                 </div>
                 <div className="department-card-content">
-                  <h5><a href="department-details.html">Pertanian & Perkebunan</a></h5>
+                  <h5><a href="#">Pertanian & Perkebunan</a></h5>
                 </div>
               </div>
             </div>
             <div className="col-xl-2 col-lg-4 col-md-6">
               <div className="department-card">
                 <div className="department-card-icon">
-                  <a href="departments.html"><i className="flaticon-briefcase"></i></a>
+                  <a href="#"><i className="flaticon-briefcase"></i></a>
                 </div>
                 <div className="department-card-content">
-                  <h5><a href="department-details.html">Pekerjaan & Karir</a></h5>
+                  <h5><a href="#">Pekerjaan & Karir</a></h5>
                 </div>
               </div>
             </div>
             <div className="col-xl-2 col-lg-4 col-md-6">
               <div className="department-card">
                 <div className="department-card-icon">
-                  <a href="departments.html"><i className="flaticon-lake"></i></a>
+                  <a href="#"><i className="flaticon-lake"></i></a>
                 </div>
                 <div className="department-card-content">
-                  <h5><a href="department-details.html">UMKM & Pariwisata</a></h5>
+                  <h5><a href="#">UMKM & Pariwisata</a></h5>
                 </div>
               </div>
             </div>
             <div className="col-xl-2 col-lg-4 col-md-6">
               <div className="department-card">
                 <div className="department-card-icon">
-                  <a href="departments.html"><i className="flaticon-transportation"></i></a>
+                  <a href="#"><i className="flaticon-transportation"></i></a>
                 </div>
                 <div className="department-card-content">
-                  <h5><a href="department-details.html">Akses Jalan & Transportasi</a></h5>
+                  <h5><a href="#">Akses Jalan & Transportasi</a></h5>
                 </div>
               </div>
             </div>
             <div className="col-xl-2 col-lg-4 col-md-6">
               <div className="department-card">
                 <div className="department-card-icon">
-                  <a href="departments.html"><i className="flaticon-agriculture"></i></a>
+                  <a href="#"><i className="flaticon-agriculture"></i></a>
                 </div>
                 <div className="department-card-content">
-                  <h5><a href="department-details.html">Budaya & Rekreasi</a></h5>
+                  <h5><a href="#">Budaya & Rekreasi</a></h5>
                 </div>
               </div>
             </div>
             <div className="col-xl-2 col-lg-4 col-md-6">
               <div className="department-card">
                 <div className="department-card-icon">
-                  <a href="departments.html"><i className="flaticon-clinic"></i></a>
+                  <a href="#"><i className="flaticon-clinic"></i></a>
                 </div>
                 <div className="department-card-content">
-                  <h5><a href="department-details.html">Kesehatan & Kesejahteraan</a></h5>
+                  <h5><a href="#">Kesehatan & Kesejahteraan</a></h5>
                 </div>
               </div>
             </div>

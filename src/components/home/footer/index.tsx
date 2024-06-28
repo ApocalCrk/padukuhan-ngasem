@@ -22,7 +22,7 @@ export default function Footer() {
             <div className="row">
               <div className="col-lg-4">
                 <div className="footer-widget-logo">
-                  <a href="index-2.html"><Image src="/image/logo-light.png" className="img-fluid"
+                  <a href="/"><Image src="/image/logo-light.png" className="img-fluid"
                       alt="img-25" width="200" height="50" /></a>
                 </div>
                 <div className="footer-widget-text">
@@ -40,7 +40,6 @@ export default function Footer() {
                     <h4 className="footer-widget-title">Jelahi Web</h4>
                     <ul className="list-unstyled">
                       <li><a href="/umkm">UMKM</a></li>
-                      <li><a href="/organisasi">Susunan Organisasi</a></li>
                       <li><a href="/berita">Berita & Artikel</a></li>
                       <li><a href="/kegiatan">Acara & Kegiatan</a></li>
                     </ul>

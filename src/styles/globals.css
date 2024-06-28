@@ -2975,7 +2975,7 @@ a.search-toggler{
 	padding: 5px 30px;
 	background-color: var(--thm-primary);
 }
-.portfolio-card-text a{
+.portfolio-card-text span{
 	font-size: 16px;
 	color: var(--thm-black);
 	font-weight: 800;

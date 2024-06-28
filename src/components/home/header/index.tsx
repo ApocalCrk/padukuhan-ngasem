@@ -66,7 +66,7 @@ export default function Header({ handleToggle }: HeaderProps) {
             </div>
             <div className="topbar-right">
               <ul>
-                <li><Link href="/tentang">Profil Padukuhan</Link></li>
+                <li><Link href="/profil">Profil Padukuhan</Link></li>
                 <li><Link href="/umkm">UMKM</Link></li>
                 <li><Link href="/kontak">Kontak</Link></li>
               </ul>
