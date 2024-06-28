@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import SidebarLinkGroup from "./SidebarLinkGroup";
-import { FaAddressCard, FaArrowLeft, FaCog, FaFile, FaHamburger, FaLandmark, FaNewspaper } from "react-icons/fa";
-import { FaTableColumns } from "react-icons/fa6";
+import { FaAddressCard, FaArrowLeft, FaCog, FaFile, FaHamburger, FaHome, FaLandmark, FaNewspaper, FaQuoteLeft, FaUsers } from "react-icons/fa";
+import { FaPhotoFilm, FaTableColumns } from "react-icons/fa6";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -14,7 +14,7 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
-  const pathname = usePathname();
+  const pathname = usePathname() || "";
 
   const trigger = useRef<any>(null);
   const sidebar = useRef<any>(null);
@@ -140,19 +140,28 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </li>
               <li>
                 <Link
-                  href="/administrator/tentang"
+                  href="/administrator/profil"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes("tentang") &&
+                    pathname.includes("profil") &&
                     "bg-graydark dark:bg-meta-4"
                   }`}
                 >
-                  <FaAddressCard className="text-xl" />
-                  Tentang
+                  <FaHome className="text-xl" />
+                  Profil Padukuhan
                 </Link>
               </li>
-
-
-              
+              <li>
+                <Link
+                  href="/administrator/umkm"
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes("umkm") &&
+                    "bg-graydark dark:bg-meta-4"
+                  }`}
+                >
+                  <FaLandmark className="text-xl" />
+                  UMKM
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -166,26 +175,62 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               {/* <!-- Menu Item Settings --> */}
               <li>
                 <Link
-                  href="/settings"
+                  href="/administrator/dokumen"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes("settings") &&
+                    pathname.includes("dokumen") &&
                     "bg-graydark dark:bg-meta-4"
                   }`}
                 >
-                  <FaLandmark className="text-xl" />
-                  Pelayanan
+                  <FaPhotoFilm className="text-xl" />
+                  Dokumen Web
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/settings"
+                  href="/administrator/galeri"
                   className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
-                    pathname.includes("settings") &&
+                    pathname.includes("galeri") &&
                     "bg-graydark dark:bg-meta-4"
                   }`}
                 >
-                  <FaCog className="text-xl" />
-                  Pengaturan
+                  <FaPhotoFilm className="text-xl" />
+                  Galeri Web
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/administrator/introduksi"
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes("introduksi") &&
+                    "bg-graydark dark:bg-meta-4"
+                  }`}
+                >
+                  <FaQuoteLeft className="text-xl" />
+                  Introduksi Web
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/administrator/identitas"
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes("identitas") &&
+                    "bg-graydark dark:bg-meta-4"
+                  }`}
+                >
+                  <FaAddressCard className="text-xl" />
+                  Identitas Web
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/administrator/admin"
+                  className={`group relative flex items-center gap-2.5 rounded-sm px-4 py-2 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${
+                    pathname.includes("administrator/admin") &&
+                    "bg-graydark dark:bg-meta-4"
+                  }`}
+                >
+                  <FaUsers className="text-xl" />
+                  Admin
                 </Link>
               </li>
               {/* <!-- Menu Item Settings --> */}

@@ -25,7 +25,12 @@ const Form = () => {
     waktu_selesai: '',
     tamu: [],
   };
-
+  const fileSizeValidation = (value: any) => {
+    if (value && value.size > 1 * 1024 * 1024) {
+        return false;
+    }
+    return true;
+  };
   const validationSchema = Yup.object({
     title: Yup.string()
       .required('Judul kegiatan diperlukan')
@@ -40,7 +45,7 @@ const Form = () => {
     content: Yup.string()
       .required('Konten kegiatan diperlukan')
       .min(20, 'Konten kegiatan minimal 20 karakter'),
-    image: Yup.mixed().required('Gambar kegiatan diperlukan'),
+    image: Yup.mixed().required('Gambar kegiatan diperlukan').test('fileSize', 'Ukuran gambar maksimal 1 MB', fileSizeValidation),
     has_tamu: Yup.boolean().required('Kegiatan ini memiliki tamu undangan?'),
     lokasi: Yup.string().required('Lokasi kegiatan diperlukan'),
     tanggal: Yup.string().required('Tanggal kegiatan diperlukan'),
@@ -120,7 +125,7 @@ const Form = () => {
                           ['clean']
                         ],
                       }}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[80%]"
+                      className="mt-1 block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[80%]"
                     />
                   )}
                 </Field>

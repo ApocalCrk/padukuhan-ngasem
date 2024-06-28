@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import SearchBar from '../search-bar';
-import { useIdentity } from '@/hooks/identity/fetch-identity';
+import useIdentity from '@/hooks/identity/fetch-identity';
 import { Identity } from '@/types/identity';
 
 interface HeaderProps {
@@ -11,23 +11,16 @@ interface HeaderProps {
 }
 
 export default function Header({ handleToggle }: HeaderProps) {
+  const { getIdentity } = useIdentity();
   const [scrolled, setScrolled] = useState(false);
   const [searchBar, setSearchBar] = useState(false);
   const [active, setActive] = useState('/');
-  const identity: Identity | null = useIdentity();
+  const [identity, setIdentity] = useState<Identity>();
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    getIdentity().then((data) => {
+      setIdentity(data);
+    });
   }, []);
 
   const onChangePage = (page: string) => {
@@ -57,7 +50,7 @@ export default function Header({ handleToggle }: HeaderProps) {
                       <i className="fa-solid fa-envelope"></i>
                     </div>
                     <div className="topbar-text">
-                      <a href="mailto:padukuhan.ngasem1@gmail.com">{identity?.email}</a>
+                      <a href={`mailto:${identity?.email}`}>{identity?.email}</a>
                     </div>
                   </li>
                   <li>
@@ -73,9 +66,9 @@ export default function Header({ handleToggle }: HeaderProps) {
             </div>
             <div className="topbar-right">
               <ul>
-                <li><a href="about.html">Tentang</a></li>
-                <li><a href="departments.html">Susunan Organisasi</a></li>
-                <li><a href="contact.html">Kontak</a></li>
+                <li><Link href="/tentang">Profil Padukuhan</Link></li>
+                <li><Link href="/umkm">UMKM</Link></li>
+                <li><Link href="/kontak">Kontak</Link></li>
               </ul>
             </div>
           </div>
@@ -94,8 +87,8 @@ export default function Header({ handleToggle }: HeaderProps) {
                   <li className={active === '/profil' ? 'active' : ''}>
                     <Link href="/profil" onClick={() => onChangePage('/profil')}>Profil Padukuhan</Link>
                   </li>
-                  <li className={active == '/pelayanan' ? 'active' : ''}>
-                    <Link href="/pelayanan" onClick={() => onChangePage('/pelayanan')}>Pelayanan Online</Link>
+                  <li className={active == '/umkm' ? 'active' : ''}>
+                    <Link href="/umkm" onClick={() => onChangePage('/umkm')}>UMKM</Link>
                   </li>
                   <li className={active === '/kegiatan' ? 'active' : ''}>
                     <Link href="/kegiatan" onClick={() => onChangePage('/kegiatan')}>Acara & Kegiatan</Link>

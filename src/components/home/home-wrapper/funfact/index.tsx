@@ -1,4 +1,17 @@
+'use client';
+import useIdentity from "@/hooks/identity/fetch-identity";
+import { Identity } from "@/types/identity";
+import { useEffect, useState } from "react";
+
 export default function Funcfact() {
+    const { getIdentity } = useIdentity();
+    const [identity, setIdentity] = useState<Identity>();
+
+    useEffect(() => {
+        getIdentity().then((data) => {
+            setIdentity(data);
+        });
+    }, []);
     return (
       <section className="funfact-section">
         <div className="container">
@@ -10,11 +23,10 @@ export default function Funcfact() {
                     <i className="flaticon-running-man"></i>
                   </div>
                   <div className="funfact-counter-number">
-                    <h3 className="counter-number">84</h3>
-                    <span className="funfact-counter-number-postfix">k</span>
+                    <h3 className="counter-number">{new Intl.NumberFormat('id-ID').format(identity?.detail_dukuh.total_penduduk || 0)}</h3>
                   </div>
                 </div>
-                <p className="funfact-text">Total People Lived<br/>in our City</p>
+                <p className="funfact-text">Total Penduduk <br/> {identity?.nama}</p>
               </div>
             </div>
             <div className="col-xl-3 col-md-6">
@@ -24,11 +36,10 @@ export default function Funcfact() {
                     <i className="flaticon-coverage"></i>
                   </div>
                   <div className="funfact-counter-number">
-                    <h3 className="counter-number">3.3</h3>
-                    <span className="funfact-counter-number-postfix">k</span>
+                    <h3 className="counter-number">{new Intl.NumberFormat('id-ID').format(identity?.detail_dukuh.luas_area || 0)}</h3>
                   </div>
                 </div>
-                <p className="funfact-text">Square kilometres<br/> Region Covers</p>
+                <p className="funfact-text">Total Luas Wilayah (Ha) <br/> {identity?.nama}</p>
               </div>
             </div>
             <div className="col-xl-3 col-md-6">
@@ -38,11 +49,10 @@ export default function Funcfact() {
                     <i className="flaticon-landscape"></i>
                   </div>
                   <div className="funfact-counter-number">
-                    <h3 className="counter-number">26</h3>
-                    <span className="funfact-counter-number-postfix">%</span>
+                    <h3 className="counter-number">{new Intl.NumberFormat('id-ID').format(identity?.detail_dukuh.total_rt || 0)}</h3>
                   </div>
                 </div>
-                <p className="funfact-text">Private & Domestic <br/>Garden Land</p>
+                <p className="funfact-text">Total RT <br/> {identity?.nama}</p>
               </div>
             </div>
             <div className="col-xl-3 col-md-6">
@@ -52,11 +62,10 @@ export default function Funcfact() {
                     <i className="flaticon-barn-3"></i>
                   </div>
                   <div className="funfact-counter-number">
-                    <h3 className="counter-number">4</h3>
-                    <span className="funfact-counter-number-postfix">th</span>
+                    <h3 className="counter-number">{new Intl.NumberFormat('id-ID').format(identity?.detail_dukuh.total_umkm || 0)}</h3>
                   </div>
                 </div>
-                <p className="funfact-text">Average Costs of Home <br/> Ownership</p>
+                <p className="funfact-text">Total UMKM <br/> {identity?.nama}</p>
               </div>
             </div>
           </div>

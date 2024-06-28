@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function BannerTop({breadcrumb, title} : {breadcrumb: string, title: string}) {
   return (
-    <section className="page-banner" style={{backgroundImage: 'url(/image/bg/ngasem1.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+    <section className="page-banner">
       <div className="container">
         <div className="page-breadcrumbs">
           <ul className="list-unstyled">

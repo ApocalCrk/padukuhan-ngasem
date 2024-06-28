@@ -3,6 +3,8 @@ import { db, storage } from '@/utils/firebase';
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 import { Berita } from '@/types/berita';
 import { slugify } from '@/utils/slugify';
+import { sendMailNotificationBr } from '@/utils/sendMail';
+import { formatContentAtLastSentence } from '@/utils/sentencePeriod';
 
 const useBerita = () => {
     const getAllBerita = async () => {
@@ -58,6 +60,8 @@ const useBerita = () => {
                 user_post: user,
             });
 
+            await sendMailNotificationBr({ id, title, deskripsi: formatContentAtLastSentence(content) });
+
             return true;
         } catch (error) {
             console.error('Error adding document: ', error);
@@ -96,17 +100,22 @@ const useBerita = () => {
         let imageUrl = '';
 
         try {
-            if (image) {
-                const imageRef = ref(storage, `images/${image.name}`);
-                await uploadBytes(imageRef, image);
-                imageUrl = await getDownloadURL(imageRef);
-            }
-
-
             const beritaCollection = collection(db, "berita");
             const q = query(beritaCollection, where("id", "==", id));
             const data = await getDocs(q);
             const doc = data.docs[0];
+
+            if (image) {
+                const oldImage = doc.data().image;
+                if (oldImage) {
+                    const oldImageRef = ref(storage, oldImage);
+                    await deleteObject(oldImageRef);
+                }
+                
+                const imageRef = ref(storage, `images/${image.name}`);
+                await uploadBytes(imageRef, image);
+                imageUrl = await getDownloadURL(imageRef);
+            }
             
             await updateDoc(doc.ref, {
                 id: slugify(title),

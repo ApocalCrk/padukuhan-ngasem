@@ -27,7 +27,7 @@ export default function Sidebar() {
                 {berita?.map((item, index) => (
                     <div className={`sidebar-recent-post ${index != berita.length - 1 ? 'mb-4' : ''}`} key={index}>
                         <div className="sidebar-recent-post-img">
-                            <img src="/image/blog/blog-details-2.jpg" alt="img-197" />
+                            <img src={item.gambar} alt="recent-post" style={{width: '100px', height: '100px'}} />
                         </div>
                         <div className="sidebar-recent-post-content">
                             <div className="sidebar-meta">

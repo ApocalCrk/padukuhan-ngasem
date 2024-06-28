@@ -3,6 +3,8 @@ import { db, storage } from '@/utils/firebase';
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 import { Kegiatan } from '@/types/kegiatan';
 import { slugify } from '@/utils/slugify';
+import { sendMailNotificationKe } from '@/utils/sendMail';
+import { formatContentAtLastSentence } from '@/utils/sentencePeriod';
 
 const useKegiatan = () => {
     const getAllKegiatan = async () => {
@@ -77,6 +79,9 @@ const useKegiatan = () => {
                 tamu: tamu,
                 gambar: imageUrl,
             });
+
+            await sendMailNotificationKe({ id, title, deskripsi: formatContentAtLastSentence(content) });
+
         } catch (error) {
             console.error(error);
             return false;
@@ -90,18 +95,23 @@ const useKegiatan = () => {
         let imageUrl = '';
 
         try {
+            const kegiatanCollection = collection(db, "kegiatan");
+            const q = query(kegiatanCollection, where("id", "==", id));
+            const data = await getDocs(q);
+            const doc = data.docs[0];
+
             if (image) {
+                const oldImage = doc.data().image;
+                if (oldImage) {
+                    const oldImageRef = ref(storage, oldImage);
+                    await deleteObject(oldImageRef);
+                }
                 const imageRef = ref(storage, `images/${image.name}`);
                 await uploadBytes(imageRef, image);
                 imageUrl = await getDownloadURL(imageRef);
             }
 
-            const kegiatanCollection = collection(db, "kegiatan");
-            const q = query(kegiatanCollection, where("id", "==", id));
-            const data = await getDocs(q);
-            const kegiatanData = data.docs[0];
-
-            await updateDoc(kegiatanData.ref, {
+            await updateDoc(doc.ref, {
                 judul: title,
                 konten: content,
                 has_tamu: has_tamu,
@@ -125,8 +135,32 @@ const useKegiatan = () => {
         const kegiatanCollection = collection(db, "kegiatan");
         const q = query(kegiatanCollection, where("id", "==", id));
         const data = await getDocs(q);
-        const kegiatanData = data.docs[0];
-        await deleteDoc(kegiatanData.ref);
+
+        if (!data.empty) {
+            const doc = data.docs[0];
+            const docData = doc.data();
+    
+            if (docData.gambar) {
+                const imageRef = ref(storage, docData.gambar);
+                await deleteObject(imageRef)
+                    .then(() => {
+                        console.log('Image successfully deleted!');
+                    })
+                    .catch((error) => {
+                        console.error('Error deleting image: ', error);
+                    });
+            }
+    
+            await deleteDoc(doc.ref)
+                .then(() => {
+                    console.log('Document successfully deleted!');
+                })
+                .catch((error) => {
+                    console.error('Error deleting document: ', error);
+                });
+        } else {
+            console.error('No document found with the given ID.');
+        }
     }
 
     return { getAllKegiatan, getKegiatan, deleteKegiatan, addKegiatan, updateKegiatan, uniqueTitle, updateUniqueTitle };

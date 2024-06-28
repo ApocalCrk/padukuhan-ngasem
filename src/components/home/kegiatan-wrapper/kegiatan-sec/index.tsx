@@ -23,12 +23,22 @@ export default function KegiatanSec() {
             <div className="event-section-outer">
                 <div className="container">
                     <div className="row row-gutter-y-30">
-                        { kegiatan?.map((kegiatan, index) => (
+                        { kegiatan === null ? (
+                            <div className="col-12">
+                                <p>Loading...</p>
+                            </div>
+                        ) : kegiatan.length === 0 ? (
+                            <div className="col-12 text-center h-[20vh] flex items-center justify-center" style={{minHeight: '20vh'}}>
+                                <h1 className="section-title">Belum ada acara atau kegiatan</h1>
+                            </div>
+                        ) : kegiatan?.map((kegiatan, index) => (
                             <div className="col-12 col-lg-6 col-xl-6" key={index}>
                                 <div className="event-card">
                                     <div className="event-card-image">
                                         <div className="event-card-image-inner">
-                                            <Link href={`/kegiatan/${kegiatan.id}`}><img src="/image/event/event-2.jpg" className="img-fluid" alt="img-164" /></Link>		
+                                            <Link href={`/kegiatan/${kegiatan.id}`}>
+                                                <img src={kegiatan.gambar} alt="event" style={{width: '250px', height: '250px'}} />
+                                            </Link>		
                                             <div className="event-card-meta">
                                                 <div className="event-meta-number">
                                                     <span>{new Intl.DateTimeFormat('id-ID', { day: '2-digit' }).format(new Date(kegiatan.tanggal))}</span>

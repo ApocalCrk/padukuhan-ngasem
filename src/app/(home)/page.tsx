@@ -1,9 +1,7 @@
 import MainSlider from '@/components/home/home-wrapper/slider';
 import Portfolio from '@/components/home/home-wrapper/portfolio';
-import ProfileLead from '@/components/home/home-wrapper/profile-lead';
 import Department from '@/components/home/home-wrapper/department';
 import About from '@/components/home/home-wrapper/about';
-import Service from '@/components/home/home-wrapper/service';
 import EventBlog from '@/components/home/home-wrapper/doc';
 import Funcfact from '@/components/home/home-wrapper/funfact';
 
@@ -21,9 +19,7 @@ export default function Home() {
         <MainSlider />
         <Department />
         <About />
-        <Service />
         <Funcfact />
-        <ProfileLead />
         <Portfolio />
         <EventBlog />
       </div>      

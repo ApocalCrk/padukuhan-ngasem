@@ -1,10 +1,18 @@
 'use client';
-import React from 'react';
-import { useIdentity } from '@/hooks/identity/fetch-identity';
+import React, { useEffect, useState } from 'react';
+import useIdentity from '@/hooks/identity/fetch-identity';
 import { Identity } from '@/types/identity';
 
 export default function Gmap() {
-    const identity: Identity | null = useIdentity();
+    const { getIdentity } = useIdentity();
+    const [identity, setIdentity] = useState<Identity>();
+
+    useEffect(() => {
+        getIdentity().then((data) => {
+        setIdentity(data);
+        });
+    }, []);
+
     return (
         <div className="contact-gmap-section">
             <div className="container">

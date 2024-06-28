@@ -39,6 +39,14 @@ const EditForm = ({ id }: { id: string }) => {
     existingImageUrl: '',
     postDate: '',
   });
+
+  const fileSizeValidation = (value: any) => {
+    if (value && value.size > 1 * 1024 * 1024) {
+        return false;
+    }
+    return true;
+  };
+
   const validationSchema = Yup.object({
     title: Yup.string().required('Judul berita diperlukan').min(5, 'Judul berita minimal 5 karakter').max(50, 'Judul berita maksimal 50 karakter').test('unique', 'Judul berita sudah ada', async (value) => {
         if (value) {
@@ -48,6 +56,7 @@ const EditForm = ({ id }: { id: string }) => {
         }
     ),
     content: Yup.string().required('Konten berita diperlukan').min(20, 'Konten berita minimal 20 karakter'),
+    image: Yup.mixed().test('fileSize', 'Ukuran gambar maksimal 1 MB', fileSizeValidation),
   });
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>, setFieldValue: any) => {
@@ -121,7 +130,7 @@ const EditForm = ({ id }: { id: string }) => {
                             ['clean']
                           ],
                         }}
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[80%]"
+                        className="mt-1 block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[80%]"
                       />
                     )}
                   </Field>

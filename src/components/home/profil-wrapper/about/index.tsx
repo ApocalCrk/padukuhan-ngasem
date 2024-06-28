@@ -1,10 +1,22 @@
 'use client';
 import React from 'react';
-import { useProfil } from '@/hooks/pages/fetch-profil';
+import useProfil from '@/hooks/pages/useProfil';
 import { Profil } from '@/types/profil';
 
 export default function About() {
-  const profil: Profil | null = useProfil();
+  const { getProfil } = useProfil();
+  
+  const [profil, setProfil] = React.useState<Profil>();
+
+  React.useEffect(() => {
+    const fetchProfil = async () => {
+      const data = await getProfil();
+      setProfil(data);
+    }
+
+    fetchProfil();
+  }, []);
+
   return (
     <section className="about-one-section">
       <div className="container">
@@ -15,9 +27,7 @@ export default function About() {
                 Tentang Padukuhan
               </div>
               <h2 className="section-title">{profil?.judul}</h2>
-                <p>
-                  {profil?.konten}
-                </p>
+                <p dangerouslySetInnerHTML={{__html: profil?.konten || ''}} className='event-details-content'></p>
                 <h5 className="about-one-inner-text">
                   {profil?.subjudul}
                 </h5>
@@ -35,8 +45,7 @@ export default function About() {
           </div>
           <div className="col-lg-12 col-xl-6">
             <div className="about-one-image">
-              {/* <img src={profil?.image} alt="img-59" className="img-fluid" /> */}
-              <img src="/image/gallery/about-7.jpg" alt="img-59" className="img-fluid" />
+              <img src={profil?.image} alt="img-59" className="img-fluid" />
             </div>
           </div>
         </div>

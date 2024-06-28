@@ -22,7 +22,7 @@ export default function DetailKegiatan({id} : {id: string}) {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="event-details-inner-box">
-                            <img src="/image/event/event-details-1.1.jpg" className="img-fluid" alt="img-173" />
+                            <img src={kegiatan?.gambar} alt="event-details" className="img-fluid" style={{width: '100%'}} />
                             <div className="event-details-meta">
                                 <div className="event-details-meta-number">
                                     <span>{new Intl.DateTimeFormat('id-ID', { day: '2-digit' }).format(new Date(kegiatan?.tanggal || new Date()))}</span>
@@ -74,10 +74,12 @@ export default function DetailKegiatan({id} : {id: string}) {
                                     </div>
                                 </div>
                                 <div className="sidebar-widget-event-meta-socials">
-                                    <a href="#"><i className="fa-brands fa-twitter"></i></a>
-                                    <a href="#"><i className="fa-brands fa-facebook"></i></a>
-                                    <a href="#"><i className="fa-brands fa-pinterest-p"></i></a>
-                                    <a href="#"><i className="fa-brands fa-instagram"></i></a>
+                                    <a href="" onClick={() => window.open(`https://twitter.com/intent/tweet?text=${window.location.href}`)
+                                    }><i className="fa-brands fa-twitter"></i></a>
+                                    <a href="#" onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`)}><i className="fa-brands fa-facebook"></i></a>
+                                    <a href="#" onClick={() => window.open(`https://wa.me/?text=${window.location.href}`)
+                                    }><i className="fa-brands fa-whatsapp"></i></a>
+                                    <a onClick={() => navigator.clipboard.writeText(window.location.href)} href="#"><i className="fa fa-share"></i></a>
                                 </div>
                             </div>
                         </div>

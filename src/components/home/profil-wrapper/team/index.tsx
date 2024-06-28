@@ -1,10 +1,21 @@
 'use client';
 import React from 'react';
-import { useProfil } from '@/hooks/pages/fetch-profil';
+import useProfil from '@/hooks/pages/useProfil';
 import { Profil } from '@/types/profil';
 
 export default function Team() {
-  const profil: Profil | null = useProfil();
+  const { getProfil } = useProfil();
+  
+  const [profil, setProfil] = React.useState<Profil>();
+
+  React.useEffect(() => {
+    const fetchProfil = async () => {
+      const data = await getProfil();
+      setProfil(data);
+    }
+
+    fetchProfil();
+  }, []);
   return (
     <section className="team-section">
       <div className="container">

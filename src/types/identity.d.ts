@@ -1,3 +1,10 @@
+export interface DetailDukuh {
+    total_rt: number;
+    total_umkm: number;
+    total_penduduk: number;
+    luas_area: number;
+  }
+
 export interface Identity {
     email: string;
     facebook: string;
@@ -8,4 +15,5 @@ export interface Identity {
     jam_kerja: string;
     gmaps: string;
     alamat: string;
+    detail_dukuh: DetailDukuh;
 }

@@ -1,10 +1,18 @@
 'use client';
 import Link from "next/link";
-import { useIdentity } from "@/hooks/identity/fetch-identity";
+import useIdentity from "@/hooks/identity/fetch-identity";
 import { Identity } from "@/types/identity";
+import { useEffect, useState } from "react";
 
 export default function BannerBot() {
-    const identity: Identity | null = useIdentity();
+    const { getIdentity } = useIdentity();
+    const [identity, setIdentity] = useState<Identity>();
+
+    useEffect(() => {
+        getIdentity().then((data) => {
+        setIdentity(data);
+        });
+    }, []);
 
     return (
         <div className="cta-four-section">

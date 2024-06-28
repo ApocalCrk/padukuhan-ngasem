@@ -28,7 +28,7 @@ export default function MainSlider() {
                     <div className="slider-content">
                         <div className="slider-tagline">Pelayanan Online Padukuhan Ngasem</div>
                         <h1 className="section-title">Eksplorasi & Kenali <br /> Padukuhan Ngasem</h1>
-                        <a href="index-3.html" className="btn btn-primary">Lihat Lebih Lanjut</a>
+                        <a href="/profil" className="btn btn-primary">Lihat Lebih Lanjut</a>
                     </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@ export default function MainSlider() {
                     <div className="slider-content">
                         <div className="slider-tagline">Media Informasi Padukuhan Ngasem</div>
                         <h1 className="section-title">Informasi Terkini <br /> Padukuhan Ngasem</h1>
-                        <a href="index-3.html" className="btn btn-primary">Lihat Lebih Lanjut</a>
+                        <a href="/profil" className="btn btn-primary">Lihat Lebih Lanjut</a>
                     </div>
                     </div>
                 </div>

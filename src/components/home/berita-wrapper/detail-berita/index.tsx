@@ -28,8 +28,8 @@ export default function DetailBerita({id} : {id: string}) {
                     <div className="col-lg-8">
                         <div className="news-details-box-image">
                             <div className="news-details-box-image-inner">
-                                <img src="/image/blog/blog-details-1.jpg" className="img-fluid" alt="img-193" />
-                                <a href="news-details.html" className="news-details-box-date">{
+                                <img src={berita?.gambar} alt="news-details" className="img-fluid" />
+                                <a className="news-details-box-date">{
                                     new Intl.DateTimeFormat('id-ID', { day: '2-digit', month: "short" }).format(new Date(berita?.tanggal_post || new Date()))
                                 }</a>
                             </div>

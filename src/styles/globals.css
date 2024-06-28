@@ -400,6 +400,25 @@ a{
  		display: none;
  	}
  }
+
+.topbar{
+	background-color: var(--thm-black);
+	animation: fadeInDown 1s;
+}
+
+@keyframes fadeInDown {
+  0% {
+	opacity: 0;
+	-webkit-transform: translateY(-20px);
+	transform: translateY(-20px);
+  }
+  100% {
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+  }
+}
+ 
 .topbar-inner{
 	display: flex;
 	justify-content: space-between;
@@ -560,18 +579,19 @@ a{
 .sticky-header--cloned.sticky-fixed {
   -webkit-transform: translateY(0);
   transform: translateY(0);
-  opacity: 1;
+  	opacity: 1;
 	-webkit-transition: visibility 500ms ease, -webkit-transform 500ms ease, opacity 500ms ease;
 	transition: visibility 500ms ease, -webkit-transform 500ms ease, opacity 500ms ease;
 	transition: transform 500ms ease, visibility 500ms ease, opacity 500ms ease;
 	transition: transform 500ms ease, visibility 500ms ease, -webkit-transform 500ms ease, opacity 500ms ease;
-  visibility: visible;
+	visibility: visible; 
 }
 /***********************
 * Menu
 ***********************/
 .main-menu{
 	background-color: var(--thm-light-bg);	
+	animation: fadeInDown 1s;
 }
 .main-menu.menu-two {
     padding-right: 0;
@@ -1232,7 +1252,7 @@ a.search-toggler{
 	display: flex;
 	justify-content: flex-end;
 }
-.department-search-form input{
+.department-search-form .css-b62m3t-container{
 	max-width: 400px;
 	width: 100%;
 	position: relative;
@@ -1241,11 +1261,17 @@ a.search-toggler{
 	height: 50px;
 	outline: 0;
 	color: var(--thm-gray);
-	padding: 0px 25px;
 	border: 2px solid var(--thm-primary);
 	border-right: 0;
 	background: transparent;
 }
+
+.department-search-form .css-13cymwt-control, .css-t3ipsp-control{
+	height: 46px!important;
+	border-color: transparent!important;
+	outline: 0!important;
+}
+
 @media(max-width: 991px){
 	.department-search-form input{
 		max-width: none;
@@ -1798,7 +1824,7 @@ a.search-toggler{
 }
 @media(max-width: 1199px){
 	.about-one-section{
-		padding: 70px 0px;
+		padding: 20px 0px;
 	}
 }
 .about-one-inner{
@@ -2227,7 +2253,7 @@ a.search-toggler{
 	margin-bottom: 40px;
 }
 .service-one-section{
-	padding: 120px 0px;
+	padding: 20px 0px;
 }
 .service-one-card{
 	padding:40px 40px;
@@ -2870,20 +2896,23 @@ a.search-toggler{
 * Page banner
 ***********************/
 .page-banner{
-	background-image: url("/image/bg/page-banner.png");
-	background-repeat: no-repeat;
-	background-color: var(--thm-black);
 	background-size: cover;
-	padding-top: 122px;
-	padding-bottom: 122px;
+	padding-top: 70px;
+	padding-bottom: 20px;
 }
+
+@media (max-width: 1199px) {
+	.page-banner{
+		padding-top: 30px;
+	}
+}
+
 .page-breadcrumbs ul {
 	display: flex;
-	justify-content: center;
 	margin-bottom: 0px;
 }
 .page-breadcrumbs li{
-	color: var(--thm-white);
+	color: var(--thm-black);
 	font-size: 14px;
 }
 .page-breadcrumbs li + li:before{
@@ -2892,15 +2921,14 @@ a.search-toggler{
 	margin: 10px;
 }
 .page-breadcrumbs a{
-	color: var(--thm-white);
+	color: var(--thm-black);
 	font-size: 14px;
 	font-weight: 500;
 }
 .page-banner-title h3{
 	font-size: 60px;
-	text-align: center;
 	margin-bottom: 0px;
-	color: var(--thm-white);
+	color: var(--thm-black);
 }
 @media(max-width: 1199px){
 	.page-banner-title h3{
@@ -4179,12 +4207,12 @@ a.search-toggler{
 	color: var(--thm-primary);
 }
 .event-three-section .event-section-outer{
-	padding-top: 150px;
-	padding-bottom: 90px;
+	padding-top: 20px;
+	padding-bottom: 40px;
 }
 @media(max-width: 1199px){
 	.event-three-section .event-section-outer{
-		padding-top: 100px;
+		padding-top: 20px;
 		padding-bottom: 40px;
 	}
 }
@@ -5287,7 +5315,7 @@ border-radius: 100px;
 	}
 }
 .blog-section.blog-section-two {
-	padding-top: 230px;
+	padding-top: 150px;
 }
 .blog-box h2{
 	font-weight: 800;
@@ -5844,7 +5872,7 @@ border-radius: 100px;
 .mobile-nav-wrapper {
 	position: fixed;
 	height: 100vh;
-	width: 100vw;
+	width: 100%;
 	top: 0;
 	left: 0;
 	z-index: 1111111;
@@ -5868,7 +5896,6 @@ border-radius: 100px;
 }
 .mobile-nav-content {
 	position: absolute;
-	max-width: 300px;
 	display: inline-block;
 	width: 100%;
 	padding: 30px 15px;

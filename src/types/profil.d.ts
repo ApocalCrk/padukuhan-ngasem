@@ -1,3 +1,8 @@
+export interface Pengurus {
+    nama: string;
+    posisi: string;
+}
+
 export interface Profil {
     id: string;
     image: string;
@@ -5,5 +10,5 @@ export interface Profil {
     konten: string;
     subjudul: string;
     visi_misi: Array<string>;
-    pengurus: Array<{ nama: string; posisi: string }>;
+    pengurus: Array<Pengurus>;
 }

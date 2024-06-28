@@ -50,6 +50,14 @@ const EditForm = ({ id }: { id: string }) => {
     tamu: [],
     existingImageUrl: "",
   });
+
+  const fileSizeValidation = (value: any) => {
+    if (value && value.size > 1 * 1024 * 1024) {
+        return false;
+    }
+    return true;
+  };
+
   const validationSchema = Yup.object({
     title: Yup.string()
       .required("Judul kegiatan diperlukan")
@@ -69,6 +77,7 @@ const EditForm = ({ id }: { id: string }) => {
     tanggal: Yup.string().required("Tanggal kegiatan diperlukan"),
     waktu_mulai: Yup.string().required("Waktu mulai kegiatan diperlukan"),
     waktu_selesai: Yup.string().required("Waktu selesai kegiatan diperlukan"),
+    image: Yup.mixed().test("fileSize", "Ukuran gambar maksimal 1 MB", fileSizeValidation),
   });
 
   const handleFileChange = (
@@ -178,7 +187,7 @@ const EditForm = ({ id }: { id: string }) => {
                             ["clean"],
                           ],
                         }}
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[80%]"
+                        className="mt-1 block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[80%]"
                       />
                     )}
                   </Field>

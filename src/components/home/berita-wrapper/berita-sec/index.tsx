@@ -44,14 +44,17 @@ export default function BeritaSec() {
         <section className="blog-section blog-section-two">
             <div className="container">
                 <div className="row row-gutter-y-155">
+                    {berita.length === 0 && (
+                        <div className="col-12 text-center flex items-center justify-center">
+                            <h1 className="section-title">Belum ada berita atau artikel</h1>
+                        </div>
+                    )}
                     {displayedBerita?.map((item, index) => (
                         <div className="col-lg-6 col-xl-4" key={index}>
                             <div className="blog-card">
                                 <div className="blog-card-image">
-                                    <img src="/image/blog/blog-1.jpg" className="img-fluid" alt="img-184"/>
-                                    <Link href={`/berita/${item.id}`}>
-                                        <i className="fa fa-link"></i>
-                                    </Link>
+                                    <img src={item.gambar} alt="blog" style={{width: '100%', height: '250px'}} />
+                                    <Link href={`/berita/${item.id}`}></Link>
                                 </div>
                                 <div className="blog-card-date">
                                     <Link href={`/berita/${item.id}`}>{new Intl.DateTimeFormat('id-ID', { day: '2-digit', month: "short", year: '2-digit' }).format(new Date(item.tanggal_post))}</Link>
@@ -64,9 +67,7 @@ export default function BeritaSec() {
                                         </span>
                                     </div>
                                     <h4><Link href={`/berita/${item.id}`}>{item.judul}</Link></h4>
-                                    <p>
-                                        {formatContentWithBreaks(item.konten)}
-                                    </p>
+                                    <p dangerouslySetInnerHTML={{__html: formatContentWithBreaks(item.konten) || ''}} className='event-details-content'></p>
                                 </div>
                             </div>
                         </div>

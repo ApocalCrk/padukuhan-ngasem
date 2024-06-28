@@ -1,6 +1,7 @@
 import { db } from './firebase';
-import { collection, getDocs, where, query } from 'firebase/firestore';
+import { collection, getDocs, where, query, updateDoc } from 'firebase/firestore';
 import bcrypt from 'bcryptjs';
+import Cookies from 'js-cookie';
 
 interface Admin {
   username: string;
@@ -16,6 +17,7 @@ const getAdminByUsername = async (username: string): Promise<Admin | null> => {
     }
 
     const admin = snapshot.docs[0].data() as Admin;
+    updateDoc(snapshot.docs[0].ref, { last_log: new Date().toISOString() });
     return admin;
 };
 
@@ -30,4 +32,10 @@ const checkUid = async (uid: string): Promise<boolean> => {
     return !snapshot.empty;
 }
 
-export { getAdminByUsername, validatePassword, checkUid };
+const logout = () => {
+    localStorage.removeItem('admin');
+    Cookies.remove('token');
+    window.location.href = '/administrator/login';
+}
+
+export { getAdminByUsername, validatePassword, checkUid, logout };

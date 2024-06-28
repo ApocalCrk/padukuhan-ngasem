@@ -1,10 +1,19 @@
 import Image from "next/image";
-import { useIdentity } from "@/hooks/identity/fetch-identity";
+import useIdentity from "@/hooks/identity/fetch-identity";
 import Link from "next/link";
 import { Identity } from "@/types/identity";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
-  const identity: Identity | null = useIdentity();
+  const { getIdentity } = useIdentity();
+  const [identity, setIdentity] = useState<Identity>();
+
+  useEffect(() => {
+    getIdentity().then((data) => {
+      setIdentity(data);
+    });
+  }, []);
+
   
   return (
     <section className="footer">
@@ -30,7 +39,7 @@ export default function Footer() {
                   <div className="footer-widget-explore">
                     <h4 className="footer-widget-title">Jelahi Web</h4>
                     <ul className="list-unstyled">
-                      <li><a href="/pelayanan">Layanan</a></li>
+                      <li><a href="/umkm">UMKM</a></li>
                       <li><a href="/organisasi">Susunan Organisasi</a></li>
                       <li><a href="/berita">Berita & Artikel</a></li>
                       <li><a href="/kegiatan">Acara & Kegiatan</a></li>
@@ -44,7 +53,6 @@ export default function Footer() {
                     <h4 className="footer-widget-title">Tentang Kami</h4>
                     <ul className="list-unstyled">
                       <li><a href="/profil">Profil Padukuhan</a></li>
-                      <li><a href="/sejarah">Sejarah Padukuhan</a></li>
                       <li><a href="/kontak">Kontak</a></li>
                     </ul>
                   </div>
@@ -59,13 +67,13 @@ export default function Footer() {
                   <div className="footer-widget-contact-list">
                     <i className="fa-solid fa-envelope"></i>
                     <div className="footer-widget-contact-item">
-                      <a href="mailto:padukuhan.ngasem1@gmail.com">padukuhan.ngasem1@gmail.com</a>
+                      <Link href={`mailto:${identity?.email}`}>{identity?.email}</Link>
                     </div>
                   </div>
                   <div className="footer-widget-contact-list">
                     <i className="fa-solid fa-phone"></i>
                     <div className="footer-widget-contact-item">
-                      <a href="tel:+62 812-3456-7890">+62 812-3456-7890</a>
+                      <Link href={`tel:${identity?.nomor_telepon}`}>{identity?.nomor_telepon}</Link>
                     </div>
                   </div>
                 </div>
