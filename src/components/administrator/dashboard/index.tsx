@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import ChatCard from "../Chat/ChatCard";
 import CardDataStats from "../CardDataStats";
 import useDashboard from '@/hooks/administrator/useDashboard';
 import { Dashboard } from '@/types/dashboard';
