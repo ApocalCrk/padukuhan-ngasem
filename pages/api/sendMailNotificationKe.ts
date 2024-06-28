@@ -1,10 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
-import useNotification from '@/hooks/private/useNotification';
+import { getAllEmail } from '@/hooks/private/useNotification';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const { getAllEmail } = useNotification();
-    const emailData = await getAllEmail();
+  const emailData = await getAllEmail();
     
   if (req.method === 'POST') {
     const { id, title, deskripsi } = req.body;
