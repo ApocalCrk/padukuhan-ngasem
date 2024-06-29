@@ -125,7 +125,7 @@ const Form = () => {
                           ['clean']
                         ],
                       }}
-                      className="mt-1 block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[80%]"
+                      className="mt-1 block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm md:h-[80%] sm:h-60 h-60"
                     />
                   )}
                 </Field>

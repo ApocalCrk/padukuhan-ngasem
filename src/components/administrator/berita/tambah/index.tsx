@@ -113,7 +113,7 @@ const Form = () => {
                           ['clean']
                         ],
                       }}
-                      className="mt-1 block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-[80%]"
+                      className="mt-1 block w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm md:h-[80%] sm:h-60 h-60"
                     />
                   )}
                 </Field>
@@ -121,7 +121,9 @@ const Form = () => {
               <ErrorMessage name="content" component="div" className="text-danger font-bold text-sm ml-1 mt-1" />
             </div>
             <div>
-              <label htmlFor="image" className="block text-sm font-medium text-gray-700">Gambar *</label>
+              <label htmlFor="image" className="block text-sm font-medium text-gray-700">
+                Gambar *
+              </label>
               <input
                 type="file"
                 name="image"

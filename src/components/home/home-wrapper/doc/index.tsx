@@ -6,10 +6,12 @@ import { Dokumen } from "@/types/dokumen";
 import { formatContentWithBreaks } from "@/utils/sentencePeriod";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import useRegisterNotification from '@/hooks/private/useRegisterNotification';
 
 export default function EventBlog() {
     const { getRecentBerita } = useBerita();
     const { getDokumen } = useDokumen();
+    const { registerNotification } = useRegisterNotification();
 
     const [berita, setBerita] = useState<Array<Berita> | null>(null);
     const [dokumen, setDokumen] = useState<Dokumen | null>(null);
@@ -113,13 +115,24 @@ export default function EventBlog() {
                         </div>
                     </div>
                     <div className="col-xl-7">
-                        <form action=""
-                        className="cta-two-form" method="post">
+                        <form className="cta-two-form" onSubmit={ async (e) => {
+                            e.preventDefault();
+                            const formData = new FormData(e.target as HTMLFormElement);
+                            const validate = await registerNotification(formData.get('email') as string);
+                            if (validate) {
+                                alert('Berhasil mendaftar notifikasi, pantau terus perkembangan kami');
+                                (e.target as HTMLFormElement).reset();
+                            } else {
+                                alert('Email sudah terdaftar');
+                            }
+                        }}>
                         <div className="cta-two-form-group">
                             <input type="email" id="email" className="input-text" placeholder="Alamat Email"
                             name="email" required/>
                         </div>
-                        <button className="btn btn-primary">Beri tahu saya</button>
+                        <button className="btn btn-primary" type="submit">
+                            Beri tahu saya
+                        </button>
                         </form>
                     </div>
                     </div>
