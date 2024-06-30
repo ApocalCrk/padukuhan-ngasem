@@ -38,11 +38,11 @@ export default function DetailBerita({id} : {id: string}) {
                             <div className="news-details-meta-box-inner">
                                 <span className="me-2">
                                     <i className="fa fa-user"></i>&nbsp;
-                                    Di Posting Oleh {berita?.user_post}
+                                    Diposting oleh {berita?.user_post}
                                 </span>
                                 <span>
                                     <i className="fa fa-calendar"></i>&nbsp;
-                                    Di Posting Pada {new Intl.DateTimeFormat('id-ID', { day: '2-digit', month: "long", year: 'numeric' }).format(new Date(berita?.tanggal_post || new Date()))}
+                                    Diposting pada {new Intl.DateTimeFormat('id-ID', { day: '2-digit', month: "long", year: 'numeric' }).format(new Date(berita?.tanggal_post || new Date()))}
                                 </span>
                             </div>
                         </div>

@@ -5524,7 +5524,10 @@ border-radius: 100px;
 @media (max-width: 991px) {
 	.news-details-meta-box {
 		display: inline-flex;
-		padding: 10px 40px;
+		padding: 20px 15px;
+	}
+	.news-details-meta-box-inner{
+		font-size: 12px!important;
 	}
 }
 .news-details-meta-box-inner{
