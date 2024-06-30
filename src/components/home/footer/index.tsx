@@ -82,7 +82,7 @@ export default function Footer() {
         </div>
         <div className="bottom-footer">
           <div className="conatiner">
-            <p>© Copyright {new Date().getFullYear()} by <a href="#">Padukuhan Ngasem</a></p>
+            <p>© Copyright {new Date().getFullYear()} by <a href="#">KKN 85 UAJY Kelompok 52</a></p>
           </div>
         </div>
     </section>
