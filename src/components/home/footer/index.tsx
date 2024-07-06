@@ -29,9 +29,9 @@ export default function Footer() {
                   <p>Padukuhan Ngasem adalah sebuah padukuhan yang terletak di Desa Tileng, Kecamatan Girisubo, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta</p>
                 </div>
                 <div className="footer-widget-socials">
-                  <Link href={identity?.twitter ?? ''} target="_blank"><i className="fa-brands fa-twitter"></i></Link>
-                  <Link href={identity?.facebook ?? ''} target="_blank"><i className="fa-brands fa-facebook"></i></Link>
-                  <Link href={identity?.instagram ?? ''} target="_blank"><i className="fa-brands fa-instagram"></i></Link>
+                  <a href={identity?.twitter ?? ''} target="_blank"><i className="fa-brands fa-twitter"></i></a>
+                  <a href={identity?.facebook ?? ''} target="_blank"><i className="fa-brands fa-facebook"></i></a>
+                  <a href={identity?.instagram ?? ''} target="_blank"><i className="fa-brands fa-instagram"></i></a>
                 </div>
               </div>
               <div className="col-lg-3">
