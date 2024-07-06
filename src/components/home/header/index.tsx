@@ -39,9 +39,9 @@ export default function Header({ handleToggle }: HeaderProps) {
           <div className="topbar-inner">
             <div className="topbar-left">
               <div className="topbar-socials">
-                <Link href={identity?.twitter ?? ''} target="_blank"><i className="fa-brands fa-twitter"></i></Link>
-                <Link href={identity?.facebook ?? ''} target="_blank"><i className="fa-brands fa-facebook"></i></Link>
-                <Link href={identity?.instagram ?? ''} target="_blank"><i className="fa-brands fa-instagram"></i></Link>
+                <a href={identity?.twitter ?? ''} target="_blank"><i className="fa-brands fa-twitter"></i></a>
+                <a href={identity?.facebook ?? ''} target="_blank"><i className="fa-brands fa-facebook"></i></a>
+                <a href={identity?.instagram ?? ''} target="_blank"><i className="fa-brands fa-instagram"></i></a>
               </div>
               <div className="topbar-info">
                 <ul>
