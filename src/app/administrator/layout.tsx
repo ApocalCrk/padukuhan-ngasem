@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Manrope } from "next/font/google";
+import { checkUid } from "@/utils/auth";
 import "@/styles/style.css";
 
 import Loader from "@/components/administrator/common/Loader";
@@ -17,8 +18,25 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [loading, setLoading] = useState<boolean>(true);
 
+
+  const checkAdmin = () => {
+    const admin = JSON.parse(localStorage.getItem("admin") || "{}");
+    checkUid(admin.uid).then((res) => {
+      if (!res) {
+        if (!window.location.pathname.startsWith("/administrator/login")) {
+          window.location.href = "/administrator/login";
+        }
+      }
+    }).catch((err) => {
+      if (!window.location.pathname.startsWith("/administrator/login")) {
+        window.location.href = "/administrator/login";
+      }
+    });
+  }
+  
   useEffect(() => {
-    setTimeout(() => setLoading(false), 1000);
+    checkAdmin();
+    setLoading(false);
   }, []);
 
   return (

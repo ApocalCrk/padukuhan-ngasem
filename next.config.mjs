@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-        // Add the ProvidePlugin to the webpack configuration
         config.plugins.push(
         new webpack.ProvidePlugin({
             $: 'jquery',
@@ -9,10 +8,9 @@ const nextConfig = {
             'window.jQuery': 'jquery',
         })
         );
-
-        // Important: return the modified config
         return config;
     },
+    pageExtensions: ['jsx', 'js', 'ts', 'tsx', 'md', 'mdx'],
 };
 
 export default nextConfig;

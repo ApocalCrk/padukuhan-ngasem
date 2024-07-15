@@ -14,6 +14,21 @@ export function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL("/administrator/login", req.url));
   }
 
+  if (
+    path.startsWith("/administrator/dashboard") &&
+    !token
+  ) {
+    return NextResponse.redirect(new URL("/administrator/login", req.url));
+  }
+
+  if (
+    path.startsWith("/administrator") &&
+    !path.startsWith("/administrator/login") &&
+    !token
+  ) {
+    return NextResponse.redirect(new URL("/administrator/login", req.url));
+  }
+
   return NextResponse.next();
 }
 
