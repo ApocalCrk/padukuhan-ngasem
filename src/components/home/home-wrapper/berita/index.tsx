@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import useRegisterNotification from '@/hooks/private/useRegisterNotification';
 
-export default function EventBlog() {
+export default function BeritaSc() {
     const { getRecentBerita } = useBerita();
     const { getDokumen } = useDokumen();
     const { registerNotification } = useRegisterNotification();
@@ -53,15 +53,12 @@ export default function EventBlog() {
                     <div className="cta-five-button">
                         <Link className="btn btn-primary" target="_blank" download href={dokumen?.file || ''}>Unduh</Link>
                     </div>
-                    <div className="cta-five-img">
-                    <i className="flaticon-file"></i>
-                    </div>
                 </div>
                 </div>
             </section>
-            <section className="blog-section">
+            <section className="berita-section">
                 <div className="container">
-                <div className="blog-box">
+                <div className="berita-box">
                     <div className="section-title-box text-center">
                     <div className="section-tagline">Berita dan Artikel Terbaru</div>
                     <h2 className="section-title">Lihat Berita dan Artikel Terbaru</h2>
@@ -75,16 +72,16 @@ export default function EventBlog() {
                     )}
                     {berita?.map((item, index) => (
                         <div className="col-lg-4" key={index}>
-                            <div className="blog-card">
-                                <div className="blog-card-image">
-                                    <img src={item.gambar} alt="blog" style={{width: '100%', height: '250px'}} />
+                            <div className="berita-card">
+                                <div className="berita-card-image">
+                                    <img src={item.gambar} alt="berita" style={{width: '100%', height: '250px'}} />
                                     <Link href={`/berita/${item.id}`}></Link>
                                 </div>
-                                <div className="blog-card-date">
+                                <div className="berita-card-date">
                                     <Link href={`/berita/${item.id}`}>{new Intl.DateTimeFormat('id-ID', { day: '2-digit', month: "short", year: '2-digit' }).format(new Date(item.tanggal_post))}</Link>
                                 </div>
-                                <div className="blog-card-content">
-                                    <div className="blog-card-meta">
+                                <div className="berita-card-content">
+                                    <div className="berita-card-meta">
                                         <span>
                                             <i className="fa fa-user"></i>&nbsp;
                                             Di Posting Oleh {item.user_post}
@@ -103,7 +100,7 @@ export default function EventBlog() {
                 <div className="container">
                 <div className="cta-two-section-inner">
                     <div className="row">
-                    <div className="col-xl-5">
+                    <div className="col-xl-4">
                         <div className="cta-two-title">
                         <div className="cta-two-card-icon">
                             <i className="flaticon-envelope-2"></i>

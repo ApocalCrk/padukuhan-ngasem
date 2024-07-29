@@ -21,12 +21,10 @@ export default function Footer() {
           <div className="container">
             <div className="row">
               <div className="col-lg-4">
-                <div className="footer-widget-logo">
-                  <a href="/"><Image src="/image/logo-light.png" className="img-fluid"
-                      alt="img-25" width="200" height="50" /></a>
-                </div>
-                <div className="footer-widget-text">
-                  <p>Padukuhan Ngasem adalah sebuah padukuhan yang terletak di Desa Tileng, Kecamatan Girisubo, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta</p>
+                <div className="footer-widget">
+                  <div className="footer-widget-text">
+                    <p>Padukuhan Ngasem adalah sebuah padukuhan yang terletak di Desa Tileng, Kecamatan Girisubo, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta</p>
+                  </div>
                 </div>
                 <div className="footer-widget-socials">
                   <a href={identity?.twitter ?? ''} target="_blank"><i className="fa-brands fa-twitter"></i></a>
@@ -60,8 +58,7 @@ export default function Footer() {
               <div className="col-lg-3">
                 <div className="footer-widget">
                   <div className="footer-widget-contact">
-                    <h4 className="footer-widget-title">Contact</h4>
-                    <p>Padukuhan Ngasem, Desa Tileng, Kecamatan Girisubo, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta</p>
+                    <h4 className="footer-widget-title">Kontak</h4>
                   </div>
                   <div className="footer-widget-contact-list">
                     <i className="fa-solid fa-envelope"></i>

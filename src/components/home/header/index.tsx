@@ -75,9 +75,6 @@ export default function Header({ handleToggle }: HeaderProps) {
                   <i className="flaticon-search-interface-symbol"></i>
                 </a>
               </div> */}
-              <div className="main-menu-right-button">
-                <Link href="/kontak" className="btn btn-primary">Laporkan Masalah</Link>
-              </div>
             </div>
           </div>
         </div>

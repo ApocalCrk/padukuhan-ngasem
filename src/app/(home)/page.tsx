@@ -1,9 +1,8 @@
 import MainSlider from '@/components/home/home-wrapper/slider';
-import Portfolio from '@/components/home/home-wrapper/portfolio';
-import Department from '@/components/home/home-wrapper/department';
-import About from '@/components/home/home-wrapper/about';
-import EventBlog from '@/components/home/home-wrapper/doc';
-import Funcfact from '@/components/home/home-wrapper/funfact';
+import Galeri from '@/components/home/home-wrapper/galeri';
+import Tentang from '@/components/home/home-wrapper/about';
+import Berita from '@/components/home/home-wrapper/berita';
+import InformasiPadukuhan from '@/components/home/home-wrapper/info';
 
 import type { Metadata } from 'next';
 
@@ -17,11 +16,10 @@ export default function Home() {
   return (
       <div className="page-wrapper">
         <MainSlider />
-        <Department />
-        <About />
-        <Funcfact />
-        <Portfolio />
-        <EventBlog />
+        <Tentang />
+        <InformasiPadukuhan />
+        <Galeri />
+        <Berita />
       </div>      
     )
 }

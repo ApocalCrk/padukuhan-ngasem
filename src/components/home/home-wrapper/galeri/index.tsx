@@ -16,7 +16,7 @@ const CustomOwlCarousel = ({ children, ...props }: any) => {
   return <OwlCarousel {...props}>{children}</OwlCarousel>;
 };
 
-export default function Portfolio() {
+export default function GaleriSc() {
   const { getAllGaleri } = useGaleri();
   const [galeri, setGaleri] = useState<Galeri[]>([]);
 
@@ -28,7 +28,7 @@ export default function Portfolio() {
 
 
   return (
-    <section className="portfolio-section">
+    <section className="galeri-section">
       <div className="section-title-box text-center">
         <div className="section-tagline">Galeri Padukuhan Ngasem</div>
         <h2 className="section-title">
@@ -36,10 +36,10 @@ export default function Portfolio() {
           Padukuhan Ngasem
         </h2>
       </div>
-      <div className="portfolio-content conatainer-fluid" style={{ height: '100%' }}>
+      <div className="galeri-content conatainer-fluid" style={{ height: '100%' }}>
         { galeri.length > 0 ? (
           <CustomOwlCarousel
-            className="portfolio-carousel owl-carousel owl-theme"
+            className="galeri-carousel owl-carousel owl-theme"
             loop
             nav={false}
             margin={30}
@@ -56,7 +56,7 @@ export default function Portfolio() {
           >
             {galeri.map((item, index) => (
               <div className="item" key={index}>
-                <div className="portfolio-card">
+                <div className="galeri-card">
                   <img
                     src={item.gambar}
                     className="img-fluid"
@@ -67,11 +67,11 @@ export default function Portfolio() {
                       borderRadius: '10px'
                     }}
                   />
-                  <div className="portfolio-card-meta">
-                    <div className="portfolio-card-text">
+                  <div className="galeri-card-meta">
+                    <div className="galeri-card-text">
                       <span>{item.tempat}</span>
                     </div>
-                    <div className="portfolio-card-title">
+                    <div className="galeri-card-title">
                       <span>{item.nama_tempat}</span>
                     </div>
                   </div>

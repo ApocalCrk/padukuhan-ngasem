@@ -48,7 +48,7 @@ export default function About() {
                 { introduksi?.sorotan.map((item, index) => (
                   <div className="col-xl-6 col-lg-12 col-md-6" key={index}>
                     <div className="about-card">
-                      <h4 className="about-title"><i className="fa-solid fa-circle-check"></i>{item.judul}</h4>
+                      <h4 className="about-title"><i className="fa-solid fa-circle"></i>{item.judul}</h4>
                       <p className="about-text" style={{fontSize: '14px'}}>
                         {item.isi}
                       </p>
