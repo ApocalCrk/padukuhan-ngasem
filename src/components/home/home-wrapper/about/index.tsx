@@ -28,7 +28,6 @@ export default function About() {
                 }} />
               </div>
               <div className="about-image-inner img-two">
-                <img src="/image/shapes/about-3.jpg" className="floated-image" alt="img-3"/>
                 <img src={introduksi?.gambar2} className="img-fluid" alt="img-4" style={{
                   width: '240px',
                   height: '566px',
