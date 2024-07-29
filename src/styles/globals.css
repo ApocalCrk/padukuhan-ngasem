@@ -4330,19 +4330,6 @@ a.search-toggler{
 		padding: 100px 0px;
 	}
 }
-.team-section:before{
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	background-color: var(--thm-light-bg);
-	background-image: url('/image/bg/funfact-bg-1.png');
-	background-position: top center;
-	background-repeat: no-repeat;
-	height: 540px;
-	opacity: 0.8;	
-}
 .team-inner h2{
 	margin-bottom: 50px;
 }
