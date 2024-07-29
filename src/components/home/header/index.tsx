@@ -35,44 +35,6 @@ export default function Header({ handleToggle }: HeaderProps) {
   return (
     <>
       <header className="header">
-        <div className="topbar">
-          <div className="topbar-inner">
-            <div className="topbar-left">
-              <div className="topbar-socials">
-                <a href={identity?.twitter ?? ''} target="_blank"><i className="fa-brands fa-twitter"></i></a>
-                <a href={identity?.facebook ?? ''} target="_blank"><i className="fa-brands fa-facebook"></i></a>
-                <a href={identity?.instagram ?? ''} target="_blank"><i className="fa-brands fa-instagram"></i></a>
-              </div>
-              <div className="topbar-info">
-                <ul>
-                  <li>
-                    <div className="topbar-icon">
-                      <i className="fa-solid fa-envelope"></i>
-                    </div>
-                    <div className="topbar-text">
-                      <a href={`mailto:${identity?.email}`}>{identity?.email}</a>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="topbar-icon">
-                      <i className="fa-solid fa-clock"></i>
-                    </div>
-                    <div className="topbar-text">
-                      <span>Jam Kerja: {identity?.jam_kerja}</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="topbar-right">
-              <ul>
-                <li><Link href="/profil">Profil Padukuhan</Link></li>
-                <li><Link href="/umkm">UMKM</Link></li>
-                <li><Link href="/kontak">Kontak</Link></li>
-              </ul>
-            </div>
-          </div>
-        </div>
         <div className={`main-menu sticky-header ${scrolled ? 'sticky-fixed sticky-header--cloned' : ''}`}>
           <div className="main-menu-inner">
             <div className="main-menu-left">
