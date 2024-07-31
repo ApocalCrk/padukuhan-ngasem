@@ -5,6 +5,7 @@ import Berita from '@/components/home/home-wrapper/berita';
 import InformasiPadukuhan from '@/components/home/home-wrapper/info';
 
 import type { Metadata } from 'next';
+import Searching from '@/components/home/home-wrapper/searching';
 
 export const metadata: Metadata = {
   title: "Padukuhan Ngasem | Eksplorasi Padukuhan Ngasem",
@@ -16,6 +17,7 @@ export default function Home() {
   return (
       <div className="page-wrapper">
         <MainSlider />
+        <Searching />
         <Tentang />
         <InformasiPadukuhan />
         <Galeri />

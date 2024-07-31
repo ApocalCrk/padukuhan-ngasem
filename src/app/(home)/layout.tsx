@@ -20,6 +20,7 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
+  const [isMounted, setIsMounted] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
   function handleToggle() {
@@ -33,6 +34,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
       $(this).parents('a').siblings('ul').slideToggle();
     });
   }
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <html lang="en">
@@ -57,6 +62,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </head>
       <body className={manrope.className} suppressHydrationWarning={true}>
         <main>
+          {!isMounted && (
+            <div id="pre-loader">
+              <div id="loader-logo"></div>
+              <div id="loader-circle"></div>
+              <div className="loader-section section-left"></div>
+              <div className="loader-section section-right"></div>
+            </div>
+          )}
 
           <Header handleToggle={handleToggle} />
 
@@ -65,6 +78,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <Footer />
 
           <Sidebar isExpanded={isExpanded} handleToggle={handleToggle} />
+          
+          <BackToTop />
         </main>
       </body>
     </html>

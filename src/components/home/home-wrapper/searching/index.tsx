@@ -36,6 +36,72 @@ export default function Searching() {
 
   return (
     <section className="searching-section">
+      <div className="container">
+        <div className="searching-section-inner">
+          <div className="row row-gutter-y-40">
+            <div className="col-xl-2 col-lg-4 col-md-6">
+              <div className="searching-card">
+                <div className="searching-card-icon">
+                  <a href="#"><i className="flaticon-farmer"></i></a>
+                </div>
+                <div className="searching-card-content">
+                  <h5><a href="#">Pertanian & Perkebunan</a></h5>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-2 col-lg-4 col-md-6">
+              <div className="searching-card">
+                <div className="searching-card-icon">
+                  <a href="#"><i className="flaticon-briefcase"></i></a>
+                </div>
+                <div className="searching-card-content">
+                  <h5><a href="#">Pekerjaan & Karir</a></h5>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-2 col-lg-4 col-md-6">
+              <div className="searching-card">
+                <div className="searching-card-icon">
+                  <a href="#"><i className="flaticon-lake"></i></a>
+                </div>
+                <div className="searching-card-content">
+                  <h5><a href="#">UMKM & Pariwisata</a></h5>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-2 col-lg-4 col-md-6">
+              <div className="searching-card">
+                <div className="searching-card-icon">
+                  <a href="#"><i className="flaticon-transportation"></i></a>
+                </div>
+                <div className="searching-card-content">
+                  <h5><a href="#">Akses Jalan & Transportasi</a></h5>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-2 col-lg-4 col-md-6">
+              <div className="searching-card">
+                <div className="searching-card-icon">
+                  <a href="#"><i className="flaticon-agriculture"></i></a>
+                </div>
+                <div className="searching-card-content">
+                  <h5><a href="#">Budaya & Rekreasi</a></h5>
+                </div>
+              </div>
+            </div>
+            <div className="col-xl-2 col-lg-4 col-md-6">
+              <div className="searching-card">
+                <div className="searching-card-icon">
+                  <a href="#"><i className="flaticon-clinic"></i></a>
+                </div>
+                <div className="searching-card-content">
+                  <h5><a href="#">Kesehatan & Kesejahteraan</a></h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="searching-search-section">
         <div className="container">
           <form className="searching-search-form" onSubmit={(e) => {
