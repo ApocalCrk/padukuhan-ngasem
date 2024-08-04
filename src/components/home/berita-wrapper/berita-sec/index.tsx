@@ -24,13 +24,13 @@ export default function BeritaSec() {
     }, []);
     
     if (!berita) {
-        return <section className="blog-section blog-section-two"></section>;
+        return <section className="berita-section berita-section-two"></section>;
     }
     
     const itemsPerPage = 6;
 
     if (!berita) {
-        return <section className="blog-section blog-section-two"></section>;
+        return <section className="berita-section berita-section-two"></section>;
     }
 
     const totalPages = Math.ceil(berita.length/ itemsPerPage);
@@ -41,7 +41,7 @@ export default function BeritaSec() {
     };
 
     return (
-        <section className="blog-section blog-section-two">
+        <section className="berita-section berita-section-two">
             <div className="container">
                 <div className="row row-gutter-y-155">
                     {berita.length === 0 && (
@@ -51,16 +51,16 @@ export default function BeritaSec() {
                     )}
                     {displayedBerita?.map((item, index) => (
                         <div className="col-lg-6 col-xl-4" key={index}>
-                            <div className="blog-card">
-                                <div className="blog-card-image">
-                                    <img src={item.gambar} alt="blog" style={{width: '100%', height: '250px'}} />
+                            <div className="berita-card">
+                                <div className="berita-card-image">
+                                    <img src={item.gambar} alt="berita" style={{width: '100%', height: '250px'}} />
                                     <Link href={`/berita/${item.id}`}></Link>
                                 </div>
-                                <div className="blog-card-date">
+                                <div className="berita-card-date">
                                     <Link href={`/berita/${item.id}`}>{new Intl.DateTimeFormat('id-ID', { day: '2-digit', month: "short", year: '2-digit' }).format(new Date(item.tanggal_post))}</Link>
                                 </div>
-                                <div className="blog-card-content">
-                                    <div className="blog-card-meta">
+                                <div className="berita-card-content">
+                                    <div className="berita-card-meta">
                                         <span>
                                             <i className="fa fa-user"></i>&nbsp;
                                             Di Posting Oleh {item.user_post}
@@ -75,8 +75,8 @@ export default function BeritaSec() {
                 </div>
                 <div className="row">
                     <div className="col-lg-12">
-                        <div className="blog-pagination-outer">
-                            <div className="blog-pagination">
+                        <div className="berita-pagination-outer">
+                            <div className="berita-pagination">
                             {currentPage > 1 && (
                                 <a className="prev page-numbers" href="#" onClick={() => handlePageChange(currentPage - 1)}>
                                     <b><i className="fa-solid fa-chevron-left"></i></b>
