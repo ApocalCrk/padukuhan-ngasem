@@ -10,7 +10,7 @@ import Searching from '@/components/home/home-wrapper/searching';
 export const metadata: Metadata = {
   title: "Padukuhan Ngasem | Eksplorasi Padukuhan Ngasem",
   description: "Padukuhan Ngasem adalah sebuah padukuhan yang terletak di Desa Tileng, Kecamatan Girisubo, Kabupaten Gunung Kidul, Daerah Istimewa Yogyakarta",
-  keywords: ["Padukuhan Ngasem", "Yogyakarta", "Girisubo"]
+  keywords: ["Padukuhan Ngasem", "Ngasem", "Yogyakarta", "Girisubo", "Tileng", "Gunung Kidul", "Padukuhan"],
 };
 
 export default function Home() {
