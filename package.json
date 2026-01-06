@@ -20,7 +20,7 @@
     "formik": "^2.4.6",
     "jquery": "^3.7.1",
     "js-cookie": "^3.0.5",
-    "next": "14.2.3",
+    "next": "14.2.35",
     "nodemailer": "^6.9.14",
     "react": "^18.3.1",
     "react-apexcharts": "^1.4.1",
